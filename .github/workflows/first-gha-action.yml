@@ -6,6 +6,10 @@ jobs:
   first-gha-action:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/upload-artifact@v4
+        with:
+            name: my-artifact
+            path: "*"
       - name: Welcome to my first GHA workflow
         run: echo "Hello, world! This is my first GitHub Actions workflow."
       - name: List files in the repository
