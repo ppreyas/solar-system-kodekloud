@@ -1,0 +1,30 @@
+name: First GHA workflow run
+on: [
+  push,
+  pull_request  ]
+jobs:
+  first-gha-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome to my first GHA workflow
+        run: echo "Hello, world! This is my first GitHub Actions workflow."
+      - name: List files in the repository
+        run: ls -la
+      - name: Display current date and time
+        run: date
+      - name: Display GitHub context
+        run: 'echo "GitHub context: ${{ toJson(github) }}"'
+      - name: Display environment variables
+        run: 'echo "Environment variables: ${{ toJson(env) }}"'
+      - name: Display job status
+        run: 'echo "Job status: ${{ job.status }}"'
+      - name: Display runner information
+        run: 'echo "Runner information: ${{ toJson(runner) }}"'
+      - name: Display workflow information
+        run: 'echo "Workflow information: ${{ toJson(github.workflow) }}"'
+      - name: Display repository information
+        run: 'echo "Repository information: ${{ toJson(github.repository) }}"'
+      - name: Display event information
+        run: 'echo "Event information: ${{ toJson(github.event) }}"'
+      - name: Display actor information
+        run: 'echo "Actor information: ${{ github.actor }}"'
